@@ -1,0 +1,2315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100817">
+
+<title>A Little Something For You ❤️</title>
+
+<style>
+  
+:root{
+  --bg:#090610;
+  --bg2:#170b20;
+  --pink:#ff5fa8;
+  --pink2:#ff9bca;
+  --purple:#a77bff;
+  --violet:#7d5cff;
+  --gold:#ffd98d;
+  --white:#fffaff;
+  --muted:#dfceda;
+  --glass:rgba(255,255,255,.075);
+  --glass2:rgba(255,255,255,.12);
+  --border:rgba(255,255,255,.15);
+  --shadow:0 30px 90px rgba(0,0,0,.5);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  color:var(--white);
+  overflow-x:hidden;
+
+  background:
+    radial-gradient(circle at 10% 10%,rgba(255,95,168,.19),transparent 28%),
+    radial-gradient(circle at 90% 15%,rgba(167,123,255,.2),transparent 30%),
+    radial-gradient(circle at 50% 55%,rgba(125,92,255,.09),transparent 35%),
+    radial-gradient(circle at 20% 90%,rgba(255,217,141,.08),transparent 25%),
+    linear-gradient(135deg,#08050c,#160a1e,#0d0714,#190b20);
+
+  min-height:100vh;
+}
+
+button,
+textarea{
+  font:inherit;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+#particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-5;
+  overflow:hidden;
+}
+
+.star{
+  position:absolute;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 12px #fff;
+  opacity:.65;
+  animation:starFloat linear infinite;
+}
+
+@keyframes starFloat{
+  0%{
+    transform:translateY(105vh) scale(.5);
+    opacity:0;
+  }
+
+  15%{
+    opacity:.8;
+  }
+
+  80%{
+    opacity:.8;
+  }
+
+  100%{
+    transform:translateY(-10vh) scale(1.3);
+    opacity:0;
+  }
+}
+
+.floating-emoji{
+  position:fixed;
+  pointer-events:none;
+  z-index:-2;
+  opacity:.15;
+  animation:emojiFloat linear infinite;
+}
+
+@keyframes emojiFloat{
+  from{
+    transform:translateY(110vh) rotate(0deg);
+  }
+
+  to{
+    transform:translateY(-15vh) rotate(360deg);
+  }
+}
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:0;
+  z-index:999;
+  background:linear-gradient(
+    90deg,
+    var(--pink),
+    var(--purple),
+    var(--gold)
+  );
+  box-shadow:0 0 18px var(--pink);
+}
+
+/* =========================================
+   GENERAL
+========================================= */
+
+section{
+  width:min(1120px,calc(100% - 32px));
+  margin:auto;
+  padding:115px 0;
+}
+
+.section-heading{
+  max-width:780px;
+  margin:0 auto 60px;
+  text-align:center;
+}
+
+.section-heading span{
+  color:var(--pink2);
+  font-size:.82rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+
+.section-heading h2{
+  margin:15px 0;
+  font-size:clamp(2.3rem,5vw,4.5rem);
+  line-height:1;
+  letter-spacing:-.05em;
+}
+
+.section-heading p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.primary-btn,
+.secondary-btn{
+  margin-top:32px;
+  padding:16px 28px;
+  border-radius:100px;
+  color:white;
+  font-weight:800;
+  transition:.35s ease;
+}
+
+.primary-btn{
+  background:linear-gradient(
+    135deg,
+    var(--pink),
+    #e64494
+  );
+
+  box-shadow:
+    0 15px 40px rgba(255,95,168,.28),
+    inset 0 1px rgba(255,255,255,.3);
+}
+
+.primary-btn:hover{
+  transform:translateY(-5px) scale(1.04);
+  box-shadow:
+    0 22px 55px rgba(255,95,168,.45);
+}
+
+.secondary-btn{
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--border);
+}
+
+.secondary-btn:hover{
+  background:rgba(255,255,255,.14);
+  transform:translateY(-3px);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  padding:30px 20px;
+}
+
+.hero-content{
+  max-width:900px;
+  animation:heroIn 1.5s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes heroIn{
+  from{
+    opacity:0;
+    transform:translateY(45px) scale(.96);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.eyebrow{
+  display:inline-flex;
+  padding:11px 19px;
+  border-radius:100px;
+
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
+
+  backdrop-filter:blur(15px);
+
+  color:var(--muted);
+  margin-bottom:27px;
+
+  animation:softGlow 3s infinite ease-in-out;
+}
+
+@keyframes softGlow{
+  50%{
+    box-shadow:0 0 30px rgba(255,95,168,.14);
+  }
+}
+
+.hero h1{
+  font-size:clamp(4rem,11vw,8rem);
+  line-height:1.35;
+  letter-spacing:-.08em;
+  margin-bottom:30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff,
+      var(--pink2),
+      var(--gold)
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+
+  filter:drop-shadow(0 10px 30px rgba(255,95,168,.12));
+}
+
+.hero p{
+  max-width:680px;
+  margin:auto;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:clamp(1rem,2.2vw,1.2rem);
+}
+
+/* =========================================
+   REVEAL ANIMATION
+========================================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(55px);
+  transition:
+    opacity .9s ease,
+    transform .9s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.reveal-left{
+  opacity:0;
+  transform:translateX(-60px);
+  transition:1s ease;
+}
+
+.reveal-left.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.reveal-right{
+  opacity:0;
+  transform:translateX(60px);
+  transition:1s ease;
+}
+
+.reveal-right.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* =========================================
+   STORY CARDS
+========================================= */
+
+.story-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.story-card{
+  min-height:280px;
+  padding:32px;
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.09),
+      rgba(255,255,255,.035)
+    );
+
+  border:1px solid var(--border);
+
+  backdrop-filter:blur(18px);
+
+  box-shadow:var(--shadow);
+
+  transition:
+    transform .45s ease,
+    border-color .45s ease,
+    background .45s ease;
+
+  position:relative;
+  overflow:hidden;
+}
+
+.story-card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(255,95,168,.09);
+  filter:blur(35px);
+  top:-90px;
+  right:-80px;
+}
+
+.story-card:hover{
+  transform:translateY(-12px);
+  border-color:rgba(255,159,200,.45);
+  background:rgba(255,255,255,.105);
+}
+
+.icon{
+  width:60px;
+  height:60px;
+  display:grid;
+  place-items:center;
+  border-radius:19px;
+
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.1);
+
+  font-size:1.8rem;
+  margin-bottom:27px;
+
+  transition:.4s ease;
+}
+
+.story-card:hover .icon{
+  transform:rotate(-5deg) scale(1.08);
+}
+
+.story-card h3{
+  font-size:1.35rem;
+  margin-bottom:14px;
+}
+
+.story-card p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* =========================================
+   ENVELOPE SECTION
+========================================= */
+
+.envelope-section{
+  min-height:850px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.envelope-wrapper{
+  width:min(900px,100%);
+  margin:auto;
+  min-height:610px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  perspective:1500px;
+}
+
+.envelope{
+  position:relative;
+  width:min(700px,90vw);
+  height:410px;
+
+  cursor:pointer;
+
+  filter:drop-shadow(
+    0 35px 55px rgba(0,0,0,.45)
+  );
+
+  transition:transform .7s ease;
+}
+
+.envelope:hover{
+  transform:translateY(-8px);
+}
+
+.envelope-body{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      145deg,
+      #ff6cab,
+      #d94c98
+    );
+
+  border-radius:12px 12px 20px 20px;
+
+  overflow:hidden;
+  z-index:3;
+}
+
+.envelope-body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      145deg,
+      transparent 49%,
+      rgba(255,255,255,.18) 50%,
+      transparent 51%
+    ),
+    linear-gradient(
+      35deg,
+      transparent 49%,
+      rgba(255,255,255,.1) 50%,
+      transparent 51%
+    );
+}
+
+.envelope-left,
+.envelope-right{
+  position:absolute;
+  bottom:0;
+  width:0;
+  height:0;
+  border-style:solid;
+  z-index:4;
+}
+
+.envelope-left{
+  left:0;
+  border-width:0 0 250px 350px;
+  border-color:transparent transparent #e75b9e transparent;
+}
+
+.envelope-right{
+  right:0;
+  border-width:250px 0 0 350px;
+  border-color:transparent transparent transparent #ce428d;
+}
+
+.envelope-flap{
+  position:absolute;
+  left:0;
+  top:0;
+  width:0;
+  height:0;
+
+  border-left:350px solid transparent;
+  border-right:350px solid transparent;
+  border-top:230px solid #ff82b7;
+
+  transform-origin:top center;
+
+  z-index:7;
+
+  transition:
+    transform 1s cubic-bezier(.2,.8,.2,1),
+    z-index 0s 0s;
+}
+
+.envelope-seal{
+  position:absolute;
+  left:50%;
+  top:145px;
+  transform:translateX(-50%);
+
+  width:65px;
+  height:65px;
+
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  background:
+    radial-gradient(circle,#ffb8d7,#f0529b);
+
+  border:4px solid rgba(255,255,255,.5);
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.25);
+
+  font-size:1.7rem;
+
+  z-index:9;
+
+  transition:.6s ease;
+}
+
+.letter{
+  position:absolute;
+
+  width:82%;
+  height:500px;
+
+  left:9%;
+  bottom:35px;
+
+  padding:48px 50px;
+
+  border-radius:8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffdfb,
+      #fff4fa
+    );
+
+  color:#4b2639;
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.35);
+
+  z-index:2;
+
+  transition:
+    transform 1.2s cubic-bezier(.2,.8,.2,1),
+    bottom 1.2s cubic-bezier(.2,.8,.2,1);
+
+  overflow:auto;
+}
+
+.letter::before{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(190,80,130,.18);
+  pointer-events:none;
+}
+
+.letter-content{
+  position:relative;
+  z-index:2;
+}
+
+.letter h3{
+  font-family:Georgia,serif;
+  font-size:2rem;
+  color:#a83270;
+  margin-bottom:22px;
+}
+
+.letter p{
+  line-height:1.9;
+  color:#68485a;
+  margin-bottom:16px;
+}
+
+.letter .signature{
+  margin-top:25px;
+  font-family:cursive;
+  font-size:1.4rem;
+  color:#a83270;
+}
+
+.envelope.open .envelope-flap{
+  transform:rotateX(180deg);
+  z-index:1;
+}
+
+.envelope.open .envelope-seal{
+  opacity:0;
+  transform:translateX(-50%) scale(.5);
+}
+
+.envelope.open .letter{
+  bottom:270px;
+  transform:translateY(-10px);
+  z-index:8;
+}
+
+.envelope.open{
+  margin-top:260px;
+}
+
+/* =========================================
+   PROPOSAL
+========================================= */
+
+.proposal{
+  min-height:850px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.proposal-card{
+  width:min(900px,100%);
+  padding:75px 35px;
+
+  border-radius:42px;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255,215,141,.15),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255,95,168,.14),
+      rgba(167,123,255,.14)
+    );
+
+  border:1px solid rgba(255,255,255,.18);
+
+  box-shadow:var(--shadow);
+
+  position:relative;
+  overflow:hidden;
+}
+
+.proposal-card::before{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  background:rgba(255,95,168,.08);
+  filter:blur(70px);
+  top:-250px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.heart{
+  display:block;
+  font-size:5rem;
+  margin-bottom:25px;
+  animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+  0%,100%{
+    transform:scale(1);
+  }
+
+  15%{
+    transform:scale(1.15);
+  }
+
+  30%{
+    transform:scale(1);
+  }
+}
+
+.proposal-card h2{
+  position:relative;
+  font-size:clamp(2.4rem,6vw,5rem);
+  letter-spacing:-.06em;
+  line-height:1;
+  margin-bottom:25px;
+}
+
+.proposal-card p{
+  position:relative;
+  max-width:700px;
+  margin:auto;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:1.08rem;
+}
+
+/* =========================================
+   QUESTIONS
+========================================= */
+
+.questions{
+  padding-bottom:140px;
+}
+
+.question-card{
+  padding:32px;
+  margin-bottom:25px;
+
+  border-radius:30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.085),
+      rgba(255,255,255,.035)
+    );
+
+  border:1px solid var(--border);
+
+  backdrop-filter:blur(17px);
+
+  box-shadow:var(--shadow);
+
+  transition:
+    transform .4s ease,
+    border-color .4s ease;
+}
+
+.question-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(255,159,200,.35);
+}
+
+.question-title{
+  font-size:1.3rem;
+  margin-bottom:22px;
+}
+
+.option-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.option{
+  text-align:left;
+
+  padding:17px;
+
+  border-radius:17px;
+
+  color:var(--white);
+
+  background:rgba(255,255,255,.055);
+
+  border:1px solid var(--border);
+
+  transition:.3s ease;
+}
+
+.option:hover,
+.option.selected{
+  background:rgba(255,95,168,.16);
+  border-color:var(--pink2);
+  transform:translateY(-3px);
+}
+
+.custom-answer{
+  display:none;
+  width:100%;
+  margin-top:16px;
+}
+
+textarea{
+  width:100%;
+  min-height:140px;
+
+  resize:vertical;
+
+  border-radius:18px;
+
+  border:1px solid var(--border);
+
+  background:rgba(255,255,255,.055);
+
+  color:white;
+
+  padding:18px;
+
+  outline:none;
+
+  line-height:1.7;
+
+  transition:.3s ease;
+}
+
+textarea:focus{
+  border-color:var(--pink2);
+  box-shadow:0 0 0 4px rgba(255,95,168,.1);
+}
+
+textarea::placeholder{
+  color:#bca9b5;
+}
+
+.enter-answer-btn{
+  margin-top:12px;
+  padding:13px 24px;
+  border-radius:100px;
+  background:linear-gradient(135deg,var(--pink),#e84d9b);
+  color:white;
+  font-weight:800;
+  border:none;
+  cursor:pointer;
+  transition:.3s ease;
+  box-shadow:0 10px 25px rgba(255,108,174,.25);
+}
+
+.enter-answer-btn:hover{
+  transform:translateY(-2px) scale(1.02);
+  box-shadow:0 15px 35px rgba(255,108,174,.4);
+}
+
+.enter-answer-btn:active{
+  transform:scale(.97);
+}
+
+/* =========================================
+   YES / NO
+========================================= */
+
+.answer-area{
+  position:relative;
+  min-height:220px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  gap:18px;
+
+  overflow:hidden;
+}
+
+.answer-btn,
+.stationary-no{
+  padding:17px 29px;
+  border-radius:100px;
+  font-weight:800;
+  min-width:145px;
+}
+
+.yes-btn{
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      #e64494
+    );
+
+  box-shadow:
+    0 15px 40px rgba(255,95,168,.3);
+}
+
+.no-btn,
+.stationary-no{
+  color:white;
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--border);
+}
+
+.answer-btn{
+  transition:
+    transform .3s ease,
+    left .45s ease,
+    top .45s ease;
+}
+
+.yes-btn:hover{
+  transform:scale(1.06) translateY(-3px);
+}
+
+.answer-result{
+  display:none;
+  text-align:center;
+  padding:30px;
+
+  animation:fadeUp .7s ease;
+}
+
+.answer-result h3{
+  font-size:1.8rem;
+  margin-bottom:12px;
+}
+
+.answer-result p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.stationary-no{
+  display:none;
+}
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final-message{
+  display:none;
+  text-align:center;
+  padding:65px 25px;
+
+  animation:fadeUp .8s ease;
+}
+
+.final-message h2{
+  font-size:clamp(2.5rem,6vw,5rem);
+
+  background:
+    linear-gradient(
+      135deg,
+      white,
+      var(--pink2),
+      var(--gold)
+    );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+
+  margin-bottom:15px;
+}
+
+.final-message p{
+  color:var(--muted);
+  line-height:1.8;
+  max-width:700px;
+  margin:auto;
+}
+
+/* =========================================
+   MUSIC
+========================================= */
+
+.music-control{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+
+  width:54px;
+  height:54px;
+
+  border-radius:50%;
+
+  background:rgba(15,9,20,.8);
+
+  border:1px solid var(--border);
+
+  color:white;
+
+  backdrop-filter:blur(15px);
+
+  z-index:100;
+
+  font-size:1.2rem;
+
+  transition:.3s ease;
+}
+
+.music-control:hover{
+  transform:scale(1.08);
+}
+
+/* =========================================
+   CELEBRATION
+========================================= */
+
+.celebration{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1000;
+}
+
+.confetti{
+  position:absolute;
+  top:-30px;
+  font-size:1.5rem;
+
+  animation:
+    confettiFall 3.8s linear forwards;
+}
+
+@keyframes confettiFall{
+  to{
+    transform:
+      translateY(110vh)
+      rotate(720deg);
+
+    opacity:0;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:800px){
+
+  section{
+    padding:85px 0;
+  }
+
+  .story-grid{
+    grid-template-columns:1fr;
+  }
+
+  .option-grid{
+    grid-template-columns:1fr;
+  }
+
+  .envelope-section{
+    min-height:750px;
+  }
+
+  .envelope{
+    width:92vw;
+    height:270px;
+  }
+
+  .envelope-left{
+    border-width:0 0 165px 46vw;
+  }
+
+  .envelope-right{
+    border-width:165px 0 0 46vw;
+  }
+
+  .envelope-flap{
+    border-left-width:46vw;
+    border-right-width:46vw;
+    border-top-width:155px;
+  }
+
+  .envelope-seal{
+    top:90px;
+    width:55px;
+    height:55px;
+  }
+
+  .letter{
+    width:86%;
+    left:7%;
+    height:390px;
+    padding:35px 28px;
+  }
+
+  .envelope.open .letter{
+    bottom:190px;
+  }
+
+  .envelope.open{
+    margin-top:190px;
+  }
+
+  .proposal-card{
+    padding:55px 22px;
+  }
+
+  .answer-area{
+    min-height:250px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .hero{
+    padding:25px 18px;
+  }
+
+  .story-card,
+  .question-card{
+    padding:23px;
+  }
+
+  .letter{
+    padding:30px 22px;
+  }
+
+  .letter h3{
+    font-size:1.6rem;
+  }
+
+  .answer-btn,
+  .stationary-no{
+    min-width:120px;
+    padding:15px 20px;
+  }
+
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- PROGRESS -->
+<div class="progress" id="progress"></div>
+
+<!-- BACKGROUND -->
+<div id="particles"></div>
+
+<!-- CELEBRATION -->
+<div class="celebration" id="celebration"></div>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      ✨ A little journey, made especially for You.
+    </div>
+
+    <h1>
+      Hey...🩵
+    </h1>
+
+    <p>
+      This isn't just a webpage.
+      It's a small journey with a few words,
+      a little surprise, and something important
+      waiting at the end.
+      <br>
+      May you will give your precious time... ✨
+    </p>
+
+    <button
+      class="primary-btn"
+      onclick="scrollToSection('story')"
+    >
+      Start the journey ❤️
+    </button>
+
+  </div>
+
+
+</section>
+
+
+<!-- =========================================
+     STORY
+========================================= -->
+
+<section id="story">
+
+  <div class="section-heading reveal">
+
+    <h2>
+      A few things I wanted to say ✨
+    </h2>
+
+    <p>
+      Sometimes the simple things become more beautiful
+      when they're given a little space.
+    </p>
+
+  </div>
+
+
+  <div class="story-grid">
+
+    <div class="story-card reveal">
+      <div class="icon">🌸</div>
+
+      <h3>
+        You are appreciated
+      </h3>
+
+      <p>
+        Some people have a way of making ordinary moments
+        feel a little brighter. Your presence is genuinely
+        appreciated.
+      </p>
+    </div>
+
+
+    <div class="story-card reveal">
+      <div class="icon">🤍</div>
+
+      <h3>
+        Respect matters
+      </h3>
+
+      <p>
+        Whatever is being expressed here,
+        it comes with honesty and respect.
+        Your thoughts, comfort and choices matter.
+      </p>
+    </div>
+
+
+    <div class="story-card reveal">
+      <div class="icon">✨</div>
+
+      <h3>
+        Something genuine
+      </h3>
+
+      <p>
+        No unnecessary drama and no hidden pressure.
+        Just something genuine that deserved
+        to be expressed.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     ENVELOPE
+========================================= -->
+
+<section class="envelope-section">
+
+  <div class="section-heading reveal">
+
+    <h2>
+      Something is waiting for you 💌
+    </h2>
+
+    <p>
+      There is a little letter inside.
+      Click the envelope to open it.
+    </p>
+
+  </div>
+
+
+  <div class="envelope-wrapper reveal">
+
+    <div
+      class="envelope"
+      id="envelope"
+      title="Open the letter"
+    >
+
+      <!-- LETTER -->
+      <div class="letter">
+
+        <div class="letter-content">
+
+          <h3>
+            A little something for you ❤️
+          </h3>
+
+          <p>
+            There are some things that are difficult
+            to express in an normal conversation.
+            So instead of saying everything at once,
+            I wanted to create this little moment.
+          </p>
+
+          <p>
+            Every part of this page was made with the hope
+            that you would smile, take your time,
+            and understand how meaningful this moment is.
+          </p>
+
+          <p>
+            If anything I said, any line I wrote, or anything I did has hurt you in any way, 
+            please forgive me. I never intended to hurt you, and if I caused you any pain, 
+            even unintentionally, I’m truly sorry. I never wanted that.
+          </p>
+
+          <p>
+            And now that you've opened the letter...
+            there's just one more part of this journey
+            waiting for you.
+          </p>
+
+          <div class="signature">
+            With sincerity ✨
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ENVELOPE BODY -->
+      <div class="envelope-body"></div>
+
+      <div class="envelope-left"></div>
+      <div class="envelope-right"></div>
+
+      <!-- FLAP -->
+      <div class="envelope-flap"></div>
+
+      <!-- SEAL -->
+      <div class="envelope-seal">
+        ❤️
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     PROPOSAL
+========================================= -->
+
+<section class="proposal">
+
+  <div class="proposal-card reveal">
+
+    <span class="heart">
+      ❤️
+    </span>
+
+    <h2>
+      "So… will you become a special part of my life? 🥹❤️".
+    </h2>
+
+    <p>
+      Everything before this was just leading up to this moment.
+      The words, the little details, and the surprise were all
+      leading to one simple and honest question.
+      <br><br>
+
+      There is no need to rush.
+      Take a moment, think about it,
+      and answer only what you genuinely feel.
+    </p>
+
+    <p>
+      And now last section...
+    </p>
+
+    <button
+      class="primary-btn"
+      onclick="scrollToSection('questions')"
+    >
+      Continue 🥹❤️
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     QUESTIONS
+========================================= -->
+
+<section
+  class="questions"
+  id="questions"
+>
+
+  <div class="section-heading reveal">
+
+    <h2>
+      Now I want to hear from you ❤️
+    </h2>
+
+    <p>
+      You can take time to decide.
+      Say only what you genuinely feel.
+    </p>
+
+  </div>
+
+
+  <!-- Q1 -->
+
+<div class="question-card">
+  <h3 class="question-title">
+    🥹 Toh... tumhe yeh journey kaisi lagi? ❤️
+  </h3>
+
+  <div class="option-grid" id="websiteOptions">
+    <button type="button" class="option">🥹 Bahut emotional thi</button>
+    <button type="button" class="option">❤️ Mujhe bahut achhi lagi</button>
+    <button type="button" class="option">🙃 Mujhe achhi nhi lagi</button>
+    <button type="button" class="option">✨ Thik hai</button>
+    <button type="button" class="option">😄 Mujhe kuch nhi kahna</button>
+    <button type="button" class="option" id="otherOption">
+      ✍️ Something else
+    </button>
+  </div>
+
+  <div class="custom-answer" id="customAnswer">
+    <textarea
+      id="customAnswerText"
+      placeholder="Write what you want to say ... ❤️"
+    ></textarea>
+
+    <button type="button" class="enter-answer-btn" id="enterAnswerBtn">
+      Enter ✨
+    </button>
+  </div>
+</div>
+
+  <!-- Q2 -->
+
+<div class="question-card">
+  <h3 class="question-title">
+    💭 Maine jo bhi tumse kaha aur apni feelings tumhare saamne rakhi...
+       uske baare mein tum kya sochti ho? ❤️
+  </h3>
+
+  <textarea id="question2Answer" placeholder="Jo bhi tum genuinely kehna chahti ho, yahan likh sakti ho..."></textarea>
+
+  <button class="enter-answer-btn" id="question2Enter">
+    Enter ❤️
+  </button>
+</div>
+
+  <!-- Q3 -->
+
+   <div class="question-card reveal" id="question3Card">
+    <h3
+      class="question-title"
+      id="question3Title"
+      style="
+        text-align:center;
+        font-size:1.6rem;
+      "
+    >
+
+      🥹 Aur ab...
+      tumhara jawab kya hai? ❤️
+
+    </h3>
+
+
+    <div
+      class="answer-area"
+      id="answerArea"
+    >
+
+      <button
+        class="answer-btn yes-btn"
+        id="yesBtn"
+      >
+        ❤️ YES
+      </button>
+
+      <button
+        class="answer-btn no-btn"
+        id="movingNoBtn"
+      >
+        🤍 NO
+      </button>
+
+      <button
+        class="stationary-no"
+        id="stationaryNoBtn"
+      >
+        🤍 NO
+      </button>
+
+    </div>
+
+
+    <div
+      class="answer-result"
+      id="yesResult"
+    >
+
+      <h3>
+        🥹❤️ You just made this moment even more special.
+      </h3>
+
+      <p>
+        Thank you for being here and for giving your answer.
+        Really I am very happy.
+        Whatever comes next, honesty, respect and understanding
+        will always matter.
+      </p>
+
+    </div>
+
+
+    <div
+      class="answer-result"
+      id="noResult"
+    >
+
+      <h3>
+        🤍 Thank you for being honest.
+      </h3>
+
+      <p>
+        Your answer and your feelings matter.
+        Thank you for taking the time to experience
+        this little journey.
+      </p>
+
+      <p>
+        So,then...we become good friends?🩵
+    </div>
+
+  </div>
+
+
+  <!-- Q4 -->
+
+ <div class="question-card">
+    <h3 class="question-title">
+      💌 Agar tum mujhse kuch aur kehna chahti ho... toh yahan likh sakti ho ❤️✨
+    </h3>
+
+   <textarea id="question4Answer" placeholder="Dil mein jo bhi hai, yahan likh sakti ho..."></textarea>
+
+   <button class="enter-answer-btn" id="question4Enter">
+      Enter ❤️
+   </button>
+ </div>
+
+  <!-- FINAL -->
+
+  <div
+    class="final-message"
+    id="finalMessage"
+  >
+
+    <h2>
+      Thank you ❤️
+    </h2>
+
+    <p>
+      For reaching the end of this little journey
+      and for taking the time to experience
+      something made especially for you. ✨
+    </p>
+
+  </div>
+
+</section>
+
+<!-- MUSIC -->
+<button
+  class="music-control"
+  id="musicBtn"
+  title="Music control"
+>
+  🎵
+</button>
+
+<audio
+  id="bgMusic"
+  loop
+>
+  <!--
+    Agar music lagana ho to:
+    <source src="music.mp3" type="audio/mpeg">
+  -->
+</audio>
+
+
+<script>
+
+ const SHEET_URL =
+    "https://script.google.com/macros/s/AKfycbz5Amxv9DOOUbNKCmWFb3XnXPklPb3HfE1g8xkwGiWm-GjeB89u9iszWJQw4rG2rBwmmA/exec";
+
+const responseId =
+  crypto.randomUUID();
+
+async function sendToSheet(data){
+
+  try{
+
+    await fetch(SHEET_URL,{
+      method:"POST",
+      body:JSON.stringify({
+
+        responseId: responseId,
+
+        ...data
+
+      })
+    });
+
+    console.log("Answer saved successfully.");
+
+  }catch(error){
+
+    console.error(
+      "Could not save answer:",
+      error
+    );
+
+  }
+
+}
+
+/* =========================================
+   BACKGROUND STARS
+========================================= */
+
+const particles =
+  document.getElementById("particles");
+
+for(let i=0;i<75;i++){
+
+  const star =
+    document.createElement("div");
+
+  star.className="star";
+
+  const size =
+    Math.random()*3+1;
+
+  star.style.width=size+"px";
+  star.style.height=size+"px";
+
+  star.style.left =
+    Math.random()*100+"%";
+
+  star.style.animationDuration =
+    (Math.random()*14+10)+"s";
+
+  star.style.animationDelay =
+    (Math.random()*-20)+"s";
+
+  particles.appendChild(star);
+}
+
+
+/* =========================================
+   FLOATING EMOJIS
+========================================= */
+
+const emojis=[
+  "❤️",
+  "✨",
+  "🌸",
+  "💫",
+  "🤍",
+  "🌟",
+  "💌"
+];
+
+for(let i=0;i<18;i++){
+
+  const e =
+    document.createElement("div");
+
+  e.className="floating-emoji";
+
+  e.textContent =
+    emojis[Math.floor(Math.random()*emojis.length)];
+
+  e.style.left =
+    Math.random()*100+"vw";
+
+  e.style.fontSize =
+    (Math.random()*18+12)+"px";
+
+  e.style.animationDuration =
+    (Math.random()*18+15)+"s";
+
+  e.style.animationDelay =
+    (Math.random()*-20)+"s";
+
+  particles.appendChild(e);
+}
+
+
+/* =========================================
+   SCROLL PROGRESS
+========================================= */
+
+window.addEventListener(
+  "scroll",
+  ()=>{
+
+    const scrollTop =
+      window.scrollY;
+
+    const max =
+      document.documentElement.scrollHeight
+      - window.innerHeight;
+
+    const progress =
+      max > 0
+      ? (scrollTop/max)*100
+      : 0;
+
+    document.getElementById(
+      "progress"
+    ).style.width =
+      progress+"%";
+
+  }
+);
+
+
+/* =========================================
+   SCROLL FUNCTION
+========================================= */
+
+function scrollToSection(id){
+
+  document
+    .getElementById(id)
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const revealElements =
+  document.querySelectorAll(
+    ".reveal,.reveal-left,.reveal-right"
+  );
+
+const revealObserver =
+  new IntersectionObserver(
+    entries=>{
+
+      entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add(
+            "visible"
+          );
+
+          revealObserver.unobserve(
+            entry.target
+          );
+
+        }
+
+      });
+
+    },
+    {
+      threshold:.12
+    }
+  );
+
+revealElements.forEach(
+  element=>{
+    revealObserver.observe(element);
+  }
+);
+
+
+/* =========================================
+   ENVELOPE
+========================================= */
+
+const envelope =
+  document.getElementById(
+    "envelope"
+  );
+
+let envelopeOpened=false;
+
+envelope.addEventListener(
+  "click",
+  ()=>{
+
+    if(envelopeOpened) return;
+
+    envelopeOpened=true;
+
+    envelope.classList.add("open");
+
+    celebrate(22);
+
+  }
+);
+
+
+/* =========================
+   QUESTION 1 OPTIONS
+========================= */
+
+const websiteOptions = document.querySelectorAll(
+  "#websiteOptions .option"
+);
+
+const otherOption = document.getElementById("otherOption");
+const customAnswer = document.getElementById("customAnswer");
+const customAnswerText = document.getElementById("customAnswerText");
+const enterAnswerBtn = document.getElementById("enterAnswerBtn");
+
+websiteOptions.forEach(option => {
+
+  option.addEventListener("click", () => {
+
+    // Remove selection from all options
+    websiteOptions.forEach(item => {
+      item.classList.remove("selected");
+    });
+
+    // Select clicked option
+    option.classList.add("selected");
+
+    // Something else
+    if(option === otherOption){
+
+      customAnswer.style.display = "block";
+
+      setTimeout(() => {
+        customAnswerText.focus();
+      }, 100);
+
+    }else{
+
+      customAnswer.style.display = "none";
+      customAnswerText.value = "";
+
+      // Q1 normal option ko Google Sheet me save karo
+      sendToSheet({
+        websiteFeedback: option.textContent.trim()
+      });
+
+    }
+
+  });
+
+});
+
+
+/* =========================
+   SOMETHING ELSE → ENTER
+========================= */
+
+enterAnswerBtn.addEventListener("click", () => {
+
+  const message = customAnswerText.value.trim();
+
+  if(message === ""){
+    customAnswerText.focus();
+    return;
+  }
+
+  // Q1 Something else ka answer Sheet me save karo
+  sendToSheet({
+    websiteFeedback: message
+  });
+
+  enterAnswerBtn.textContent = "✓ Answer Submitted";
+  enterAnswerBtn.disabled = true;
+
+  customAnswerText.readOnly = true;
+
+  celebrate(12);
+
+});
+
+/* =========================================
+   YES / NO SYSTEM
+========================================= */
+
+const yesBtn =
+  document.getElementById("yesBtn");
+
+const movingNoBtn =
+  document.getElementById("movingNoBtn");
+
+const stationaryNoBtn =
+  document.getElementById("stationaryNoBtn");
+
+const answerArea =
+  document.getElementById("answerArea");
+
+const yesResult =
+  document.getElementById("yesResult");
+
+const noResult =
+  document.getElementById("noResult");
+
+const finalMessage =
+  document.getElementById("finalMessage");
+
+const question3Title =
+  document.getElementById("question3Title");
+
+
+const isTouchDevice =
+  window.matchMedia("(pointer:coarse)").matches ||
+  navigator.maxTouchPoints > 0;
+
+
+let noMoves = 0;
+const maxMoves = 5;
+
+
+/* =========================================
+   SAFE NO POSITION
+========================================= */
+
+function getSafePosition(){
+
+  const area =
+    answerArea.getBoundingClientRect();
+
+  const buttonWidth = 145;
+  const buttonHeight = 55;
+
+  const maxX =
+    Math.max(10, area.width - buttonWidth - 10);
+
+  const maxY =
+    Math.max(10, area.height - buttonHeight - 10);
+
+  return {
+    x: Math.random() * maxX,
+    y: Math.random() * maxY
+  };
+
+}
+
+
+/* =========================================
+   MOVE NO
+========================================= */
+
+function moveNoButton(){
+
+  if(noMoves >= maxMoves){
+
+    showRealNo();
+    return;
+
+  }
+
+  const pos =
+    getSafePosition();
+
+  movingNoBtn.style.position = "absolute";
+
+  movingNoBtn.style.left =
+    pos.x + "px";
+
+  movingNoBtn.style.top =
+    pos.y + "px";
+
+  noMoves++;
+
+  if(noMoves >= maxMoves){
+
+    setTimeout(showRealNo, 500);
+
+  }
+
+}
+
+
+/* =========================================
+   SHOW REAL NO
+========================================= */
+
+function showRealNo(){
+
+  movingNoBtn.style.display = "none";
+
+  stationaryNoBtn.style.display =
+    "inline-block";
+
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+if(!isTouchDevice){
+
+  movingNoBtn.addEventListener(
+    "mouseenter",
+    moveNoButton
+  );
+
+  movingNoBtn.addEventListener(
+    "click",
+    ()=>{
+      moveNoButton();
+    }
+  );
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+if(isTouchDevice){
+
+  movingNoBtn.addEventListener(
+    "click",
+    event=>{
+
+      event.preventDefault();
+
+      moveNoButton();
+
+    }
+  );
+
+}
+
+
+/* =========================================
+   YES
+========================================= */
+
+yesBtn.addEventListener(
+  "click",
+  ()=>{
+
+    sendToSheet({
+      finalAnswer: "YES"
+    });
+
+    // Question hide
+    question3Title.style.display = "none";
+
+    // YES / NO buttons hide
+    answerArea.style.display = "none";
+
+    // YES message show
+    yesResult.style.display = "block";
+
+    // NO message hide
+    noResult.style.display = "none";
+
+    // THANK YOU show
+    finalMessage.style.display = "block";
+
+    celebrate(100);
+
+  }
+);
+
+
+/* =========================================
+   REAL NO
+========================================= */
+
+stationaryNoBtn.addEventListener(
+  "click",
+  ()=>{
+
+    sendToSheet({
+      finalAnswer: "NO"
+    });
+
+    // Question hide
+    question3Title.style.display = "none";
+
+    // YES / NO buttons hide
+    answerArea.style.display = "none";
+
+    // NO message show
+    noResult.style.display = "block";
+
+    // YES message hide
+    yesResult.style.display = "none";
+
+    // THANK YOU show
+    finalMessage.style.display = "block";
+
+  }
+);
+
+/* =========================
+   QUESTION 2 ENTER BUTTON
+========================= */
+
+const question2Answer = document.getElementById("question2Answer");
+const question2Enter = document.getElementById("question2Enter");
+
+question2Enter.addEventListener("click", () => {
+
+  const answer = question2Answer.value.trim();
+
+  if(answer === ""){
+    question2Answer.focus();
+    return;
+  }
+
+sendToSheet({
+  feelings: answer
+});
+
+  question2Enter.textContent = "✓ Answer Submitted ❤️";
+  question2Enter.style.opacity = "0.8";
+});
+
+/* =========================
+   QUESTION 4 ENTER BUTTON
+========================= */
+
+const question4Answer = document.getElementById("question4Answer");
+const question4Enter = document.getElementById("question4Enter");
+
+question4Enter.addEventListener("click", () => {
+
+  const answer = question4Answer.value.trim();
+
+  if(answer === ""){
+    question4Answer.focus();
+    return;
+  }
+
+  sendToSheet({
+    additionalMessage: answer
+  });
+
+  question4Enter.textContent = "✓ Answer Submitted ❤️";
+  question4Enter.style.opacity = "0.8";
+});
+
+
+/* =========================================
+   CELEBRATION
+========================================= */
+
+function celebrate(amount=40){
+
+  const celebration =
+    document.getElementById(
+      "celebration"
+    );
+
+  const symbols=[
+    "✨",
+    "❤️",
+    "🌸",
+    "💫",
+    "🎉",
+    "🌟",
+    "💌",
+    "🥹"
+  ];
+
+  for(let i=0;i<amount;i++){
+
+    const item =
+      document.createElement("div");
+
+    item.className =
+      "confetti";
+
+    item.textContent =
+      symbols[
+        Math.floor(
+          Math.random()*symbols.length
+        )
+      ];
+
+    item.style.left =
+      Math.random()*100+"vw";
+
+    item.style.animationDuration =
+      (Math.random()*2+2.5)+"s";
+
+    item.style.animationDelay =
+      (Math.random()*.5)+"s";
+
+    celebration.appendChild(item);
+
+    setTimeout(
+      ()=>{
+        item.remove();
+      },
+      5000
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+const music =
+  document.getElementById(
+    "bgMusic"
+  );
+
+const musicBtn =
+  document.getElementById(
+    "musicBtn"
+  );
+
+musicBtn.addEventListener(
+  "click",
+  async()=>{
+
+    if(!music.src ||
+       music.src===window.location.href){
+
+      musicBtn.textContent="🎵";
+
+      return;
+
+    }
+
+    try{
+
+      if(music.paused){
+
+        await music.play();
+
+        musicBtn.textContent="🎶";
+
+      }else{
+
+        music.pause();
+
+        musicBtn.textContent="🎵";
+
+      }
+
+    }catch(error){
+
+      musicBtn.textContent="🎵";
+ssssss
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
